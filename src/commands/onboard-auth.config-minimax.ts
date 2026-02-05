@@ -164,7 +164,7 @@ export function applyMinimaxApiProviderConfig(
   const normalizedApiKey = resolvedApiKey?.trim() === "minimax" ? "" : resolvedApiKey;
   providers.minimax = {
     ...existingProviderRest,
-    baseUrl: MINIMAX_API_BASE_URL,
+    baseUrl: (existingProvider as { baseUrl?: string })?.baseUrl?.trim() || MINIMAX_API_BASE_URL,
     api: "anthropic-messages",
     ...(normalizedApiKey?.trim() ? { apiKey: normalizedApiKey } : {}),
     models: mergedModels.length > 0 ? mergedModels : [apiModel],
