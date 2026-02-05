@@ -19,6 +19,6 @@
       }
     }
   },
-  "postCreateCommand": "npm install -g pnpm && pnpm install",
+  "postCreateCommand": "npm install -g pnpm && pnpm install && bash scripts/setup-codespace.sh",
   "remoteUser": "node"
 }
