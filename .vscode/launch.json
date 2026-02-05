@@ -1,0 +1,42 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Debug Gateway (Dev)",
+      "program": "${workspaceFolder}/scripts/run-node.mjs",
+      "args": ["--dev", "gateway"],
+      "console": "integratedTerminal",
+      "skipFiles": ["<node_internals>/**"],
+      "env": {
+        "OPENCLAW_SKIP_CHANNELS": "0",
+        "CLAWDBOT_SKIP_CHANNELS": "0"
+      }
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Debug Agent (CLI)",
+      "program": "${workspaceFolder}/scripts/run-node.mjs",
+      "args": ["agent"],
+      "console": "integratedTerminal",
+      "skipFiles": ["<node_internals>/**"]
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Onboard Wizard",
+      "program": "${workspaceFolder}/scripts/run-node.mjs",
+      "args": ["onboard"],
+      "console": "integratedTerminal"
+    },
+    {
+      "type": "node",
+      "request": "attach",
+      "name": "Attach to Process",
+      "processId": "${command:PickProcess}",
+      "skipFiles": ["<node_internals>/**"]
+    }
+  ]
+}
